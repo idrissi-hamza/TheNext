@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 import Logo from "../asset/logo.svg";
 import Button from "./Button";
 
 export default function App() {
+  const { logout } = useLogout();
   return (
     <nav className="w-full py-2 pl-4 pr-10 border-b-2">
       <ul className="flex mx-auto items-center justify-center space-x-4 ">
@@ -20,7 +22,7 @@ export default function App() {
           <Link to="/signup">Signup</Link>
         </li>
         <li>
-          <Button title={'Logout'} />
+          <Button title={'Logout'} onClick={logout}/> 
         </li>
       </ul>
     </nav>
