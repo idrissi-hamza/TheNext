@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-[#f4f4f4]  h-screen;
+    @apply bg-[#f4f4f4];
   }
 }

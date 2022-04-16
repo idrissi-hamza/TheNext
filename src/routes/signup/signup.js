@@ -16,7 +16,7 @@ export default function Signup() {
 
   return (
     <form
-      className="max-w-sm my-10 bg-white mx-auto p-5 border shadow rounded text-slate-600"
+      className="max-w-sm w-80 my-10 bg-white mx-auto p-5 border shadow rounded text-slate-600"
       onSubmit={submitHandler}
     >
       <h2 className="text-xl font-semibold ">Signup</h2>
