@@ -16,8 +16,8 @@ function SmallCalendar({ month }) {
       ))}
 
       {month.map((day, i) => (
-        <div
-        // to={`/tasks/${day.format("DD-MM-YYYY")}`}
+        <Link
+        to={`/tasks/${day.format("DD-MM-YYYY")}`}
           id={day}
           className={`flex justify-center items-center h-8 w-8 hover:border-2 transition ease-out duration-300 select-none cursor-pointer
             ${
@@ -31,7 +31,7 @@ function SmallCalendar({ month }) {
           }
         >
           {day.format("DD")}
-        </div>
+        </Link>
       ))}
     </div>
   );

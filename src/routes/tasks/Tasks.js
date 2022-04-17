@@ -8,14 +8,14 @@ import { useCollection } from "../../hooks/useCollection";
 import Task from "./Task";
 
 const Tasks = () => {
-  let params = useParams();
   const { pickDay } = useCtrlContext();
   const { user } = useAuthContext();
   const { documents, error } = useCollection(
     "todos",
     ["uid", "==", user.uid],
     ["createdAt", "desc"],
-    ['day', '==', pickDay ]
+    ['day', '==', pickDay ],
+    ['status' , '==', 'todo']
   );
  
   let date = dayjs(pickDay).format("dddd, MMMM DD, YYYY");

@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { projectFirestore } from "../firebase/config";
+import { useCtrlContext } from "./useCtrlContext";
 
-export const useCollection = (collection, _query,_orderBy,_day) => {
+export const useCollection = (collection, query, orderBy, day,status) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
 
-  const query = useRef(_query).current;
-  const orderBy=useRef(_orderBy).current
-  const day=useRef(_day).current
-
+ 
+  
   useEffect(() => {
     let ref = projectFirestore.collection(collection);
 
@@ -22,6 +21,9 @@ export const useCollection = (collection, _query,_orderBy,_day) => {
 
     if (day) {
       ref = ref.where(...day);
+    }
+    if (status) {
+      ref = ref.where(...status);
     }
 
     const unsubscribe = ref.onSnapshot(
@@ -43,7 +45,7 @@ export const useCollection = (collection, _query,_orderBy,_day) => {
 
     //unsubscribe on mount
     return () => unsubscribe();
-  }, [collection, query,orderBy,day]);
+  }, [day]);
 
   return { documents, error };
 };

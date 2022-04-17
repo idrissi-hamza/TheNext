@@ -5,7 +5,7 @@ import { useCtrlContext } from "../../../hooks/useCtrlContext";
 import { Link } from "react-router-dom";
 
 function DayOfCalendar({ day }) {
-  const { dispatch,pickDay } = useCtrlContext();
+  const { dispatch, pickDay } = useCtrlContext();
   // let pickDay = getToday();/
 
   let isToday = day.format("DD/MM/YYYY") === dayjs().format("DD/MM/YYYY");
@@ -21,9 +21,8 @@ function DayOfCalendar({ day }) {
 
   return (
     <Link
-    to ={`/tasks/${day.format("DD-MM-YYYY")}`}
-      onClick={(e) => dispatch({ type: "SELECT_DAY", payload: e.target.id })} 
-      onDoubleClick={()=>console.log('db')}
+      to={`/tasks/${day.format("DD-MM-YYYY")}`}
+      onClick={(e) => dispatch({ type: "SELECT_DAY", payload: e.target.id })}
       id={day}
       className={`${tdyCss} ${pickCss} focus:bg-blue-100   active:bg-blue-300 group   border-r pl-2   transition ease-out duration-200 select-none cursor-pointer `}
     >

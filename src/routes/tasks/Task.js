@@ -1,20 +1,27 @@
 // pending_actions
 import React from "react";
 import { useFirestore } from "../../hooks/useFirestore";
-import { TrashIcon } from "@heroicons/react/outline";
+import { TrashIcon, ClipboardCopyIcon } from "@heroicons/react/outline";
 
-const Task = ({doc}) => {
-  const { deleteDocument } = useFirestore("todos");
-  console.log(doc);
+const Task = ({ doc }) => {
+  const { deleteDocument,doingDocument } = useFirestore("todos");
+
   return (
-    <li className="relative bg-stone-100 m-1 p-2 rounded text-slate-700">
-      <span>{doc.task}</span>
+    <li className="flex group bg-stone-100 m-1 p-2 rounded text-slate-700">
+      <span className="mr-auto">{doc.task}</span>
       <button
-        className="group absolute  text-center right-1 "
+        className=" "
+        onClick={() => doingDocument(doc.id)}
+      >
+        <ClipboardCopyIcon className=" text-green-400 opacity-0 group-hover:opacity-100 w-5 h-5" />
+      </button>
+      <button
+        className=" "
         onClick={() => deleteDocument(doc.id)}
       >
-        <TrashIcon className="group-hover:text-red-500 w-4 h-4" />
+        <TrashIcon className="text-red-400 opacity-0 group-hover:opacity-100 w-5 h-5" />
       </button>
+      
     </li>
   );
 };
