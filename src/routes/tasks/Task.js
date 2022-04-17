@@ -1,15 +1,22 @@
 // pending_actions
-import React from 'react'
+import React from "react";
+import { useFirestore } from "../../hooks/useFirestore";
+import { TrashIcon } from "@heroicons/react/outline";
 
-const Task = ({todo}) => {
+const Task = ({doc}) => {
+  const { deleteDocument } = useFirestore("todos");
+  console.log(doc);
   return (
-    <div className="bg-stone-100 m-1 p-2 rounkded ">
-      <span>{todo}</span>
-      <button className="material-icons-outlined px-1  ">pending_actions</button>
-      <button className="material-icons-outlined px-1  ">delete_forever</button>
+    <li className="relative bg-stone-100 m-1 p-2 rounded text-slate-700">
+      <span>{doc.task}</span>
+      <button
+        className="group absolute  text-center right-1 "
+        onClick={() => deleteDocument(doc.id)}
+      >
+        <TrashIcon className="group-hover:text-red-500 w-4 h-4" />
+      </button>
+    </li>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Task
+export default Task;

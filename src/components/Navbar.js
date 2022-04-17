@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
-
+import { LogoutIcon } from "@heroicons/react/outline";
 import Logo from "../asset/logo.svg";
 import Button from "./Button";
 import CtrlNavbar from "./CtrlNavbar";
@@ -20,9 +20,7 @@ export default function App() {
             </Link>
           </div>
 
-          {user && (
-            <CtrlNavbar/>
-          )}
+          {user && <CtrlNavbar />}
         </li>
 
         {!user && (
@@ -39,7 +37,12 @@ export default function App() {
           <>
             <li>hello, {user.displayName}</li>
             <li>
-              <Button title={"Logout"} onClick={logout} />
+              <button className="flex items-center justify-center space-x-1">
+                <LogoutIcon
+                  onClick={logout}
+                  className="group-hover:text-red-500 w-6 h-6 text-gray-600"
+                />
+              </button>
             </li>
           </>
         )}

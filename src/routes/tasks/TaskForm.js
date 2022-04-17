@@ -12,6 +12,7 @@ export default function TaskForm({ uid }) {
       uid,
       task,
       day: pickDay,
+      status:'todo'
     });
   };
 
@@ -42,22 +43,6 @@ export default function TaskForm({ uid }) {
           
           <button className="material-icons-outlined px-1  ">add</button>
         </label>
-
-        {/* <div className="bg-stone-100 m-1 p-2 rounkded flex items-center justify-start  text-slate-400 pb-1 border-b ">
-          <span className="material-icons-outlined">add</span>
-          <input
-            className="outline-none pl-3 bg-inherit"
-            type="text"
-            placeholder="Add a todo"
-            value={task}
-            ref={taskInputRef}
-            onChange={(e) => setTask(e.target.value)}
-          ></input>
-        </div> */}
-
-        {/* <button className="border-2 border-white text-white px-3 py-1 rounded hover:bg-indigo-50 hover:text-indigo-500 focus:bg-indigo-100 font-semibold transition ease-in-out w-full block">
-          Add Transaction
-        </button> */}
       </form>
     </>
   );
