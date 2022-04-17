@@ -1,11 +1,16 @@
 import dayjs from "dayjs";
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import { useCtrlContext } from "../../hooks/useCtrlContext";
+import TaskForm from "./TaskForm";
 
 const Tasks = () => {
   let params = useParams();
   const { pickDay } = useCtrlContext();
+  const { user } = useAuthContext();
+  
+
   let date = dayjs(pickDay).format("dddd, MMMM DD, YYYY");
   // console.log(dayjs(pickDay).format("dddd MMMM YYYY"));
   return (
@@ -16,10 +21,12 @@ const Tasks = () => {
       <div className="flex space-x-2 m-2 flex-1">
         <div className="w-1/3 grow-0 bg-stone-200 rounded-t">
           <h2 className="p-2 font-semibold text-slate-600 ">TO DO</h2>
-          
-          <div className="bg-stone-100 m-1 p-2 rounkded ">
-           ggg
-          </div>
+          <TaskForm uid={user.uid}/>
+          <ul>
+            {}
+          </ul>
+
+          <div className="bg-stone-100 m-1 p-2 rounkded ">ggg</div>
         </div>
         <div className="w-1/3 bg-gray-200 rounded-t">
           <h2 className="p-2 font-semibold text-slate-600">ONGOING</h2>
