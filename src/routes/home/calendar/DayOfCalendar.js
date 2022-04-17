@@ -2,6 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import { getToday } from "../../../util";
 import { useCtrlContext } from "../../../hooks/useCtrlContext";
+import { Link } from "react-router-dom";
 
 function DayOfCalendar({ day }) {
   const { dispatch,pickDay } = useCtrlContext();
@@ -19,14 +20,15 @@ function DayOfCalendar({ day }) {
   }
 
   return (
-    <div
+    <Link
+    to ={`/tasks/${day.format("DD-MM-YYYY")}`}
       onClick={(e) => dispatch({ type: "SELECT_DAY", payload: e.target.id })} 
       onDoubleClick={()=>console.log('db')}
       id={day}
       className={`${tdyCss} ${pickCss} focus:bg-blue-100   active:bg-blue-300 group   border-r pl-2   transition ease-out duration-200 select-none cursor-pointer `}
     >
       {isToday ? day.format("MMM-DD") : day.format("DD")}
-    </div>
+    </Link>
   );
 }
 

@@ -3,6 +3,8 @@ import Login from "./routes/login/login";
 import Signup from "./routes/signup/signup";
 import Home from "./routes/home/home";
 import Navbar from "./components/Navbar";
+import Tasks from "./routes/tasks/Tasks";
+import Sidebar from "./components/sidebar/Sidebar";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
@@ -13,20 +15,35 @@ function App() {
         <BrowserRouter>
           <div className="flex flex-col h-screen ">
             <Navbar />
-            <Routes>
-              <Route
-                path="/"
-                element={user ? <Home /> : <Navigate to="/login" />}
-              />
-              <Route
-                path="login"
-                element={user ? <Navigate to="/" /> : <Login />}
-              />
-              <Route
-                path="signup"
-                element={user ? <Navigate to="/" /> : <Signup />}
-              />
-            </Routes>
+            <div className="flex h-full ">
+              {user && <Sidebar />}
+              <Routes>
+                <Route
+                  path="/"
+                  element={user ? <Home /> : <Navigate to="/login" />}
+                />
+                <Route
+                  path="login"
+                  element={user ? <Navigate to="/" /> : <Login />}
+                />
+                <Route
+                  path="signup"
+                  element={user ? <Navigate to="/" /> : <Signup />}
+                />
+                <Route
+                  path="*"
+                  element={
+                    <main className="p-10">
+                      <p>There's nothing here!</p>
+                    </main>
+                  }
+                />
+                <Route
+                  path="tasks/:id"
+                  element={user ? <Tasks /> : <Navigate to="/login" />}
+                />
+              </Routes>
+            </div>
           </div>
         </BrowserRouter>
       )}

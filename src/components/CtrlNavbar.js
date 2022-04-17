@@ -1,6 +1,7 @@
 import React from "react";
 import { useCtrlContext } from "../hooks/useCtrlContext";
 import dayjs from "dayjs";
+import { Link } from "react-router-dom";
 
 
 const CtrlNavbar = () => {
@@ -17,14 +18,15 @@ const CtrlNavbar = () => {
           menu
         </button>
       </div>
-      <button
+      <Link
+      to='/'
         className="ml-8 border px-3 py-1 mr-4 rounded-md border-slate-700 text-slate-500  hover:bg-slate-600 hover:text-slate-100 "
         onClick={() => {
           dispatch({ type: "TODAY" });
         }}
       >
         Today
-      </button>
+      </Link>
       <button
         className="material-icons-outlined text-gray-600 mr-2 "
         onClick={() => dispatch({ type: "PREV_MONTH" })}

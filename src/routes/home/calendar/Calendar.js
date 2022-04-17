@@ -25,7 +25,7 @@ function Month() {
       </div>
       <div className=" grid grid-cols-7 flex-1">
         {month.map((day, i) => (
-          <DayOfCalendar key={i} day={day} idx={i} />
+          <DayOfCalendar key={i} day={day}  />
         ))}
       </div>
     </div>

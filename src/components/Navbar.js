@@ -10,7 +10,7 @@ export default function App() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   return (
-    <nav className="w-full py-2 pl-4 pr-10 border-b-2 bg-slate-200   ">
+    <nav className="w-full py-2 pl-4 pr-10 border-b border-b-slate-400 bg-slate-200   ">
       <ul className="flex mx-auto items-center  space-x-4 ">
         <li className="mr-auto flex items-center">
           <div className="flex">
