@@ -40,6 +40,13 @@ const firestoreReducer = (state, action) => {
         error: null,
         document: { ...document, status: "doing" },
       };
+    case "DONE_DOCUMENT":
+      return {
+        success: true,
+        isPending: false,
+        error: null,
+        document: { ...document, status: "done" },
+      };
     default:
       return state;
   }
@@ -94,10 +101,28 @@ export const useFirestore = (collection) => {
     dispatch({ type: "IS_PENDING" });
 
     try {
-      const doingDocument = await ref.doc(id).update({status:'doing'});
+      const doingDocument = await ref.doc(id).update({ status: "doing" });
       dispatchIfNotCancelled({
         type: "DOING_DOCUMENT",
         payload: doingDocument,
+      });
+    } catch (err) {
+      dispatchIfNotCancelled({
+        type: "ERROR",
+        payload: "something went wrong",
+      });
+    }
+  };
+
+  // switch document from  doing to done 
+  const doneDocument = async (id) => {
+    dispatch({ type: "IS_PENDING" });
+
+    try {
+      const doneDocument = await ref.doc(id).update({ status: "done" });
+      dispatchIfNotCancelled({
+        type: "DONE_DOCUMENT",
+        payload: doneDocument,
       });
     } catch (err) {
       dispatchIfNotCancelled({
@@ -111,5 +136,5 @@ export const useFirestore = (collection) => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { addDocument, deleteDocument, doingDocument, response };
+  return { addDocument, deleteDocument, doingDocument, doneDocument, response };
 };

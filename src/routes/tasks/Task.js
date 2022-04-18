@@ -10,10 +10,9 @@ const Task = ({ doc }) => {
     <li className="flex group bg-stone-100 m-1 p-2 rounded text-slate-700">
       <span className="mr-auto">{doc.task}</span>
       <button
-        className=" "
         onClick={() => doingDocument(doc.id)}
       >
-        <ClipboardCopyIcon className=" text-green-400 opacity-0 group-hover:opacity-100 w-5 h-5" />
+        <ClipboardCopyIcon className="  text-green-400 opacity-0 group-hover:opacity-100 w-5 h-5" />
       </button>
       <button
         className=" "
