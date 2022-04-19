@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function SmallCalendar({ month }) {
   // const dispatch = useDispatch();
-  const { dispatch } = useCtrlContext();
+  const { dispatch,pickDay} = useCtrlContext();
   return (
     <div className="text-sm font-medium text-slate-700 grid grid-cols-7    ">
       {weekday.map((day, i) => (
@@ -17,13 +17,12 @@ function SmallCalendar({ month }) {
 
       {month.map((day, i) => (
         <Link
-        to={`/tasks/${day.format("DD-MM-YYYY")}`}
+          to={`/tasks/${day.format("DD-MM-YYYY")}`}
           id={day}
-          className={`flex justify-center items-center h-8 w-8 hover:border-2 transition ease-out duration-300 select-none cursor-pointer
-            ${
-              day.format("DD/MM/YYYY") === dayjs().format("DD/MM/YYYY")
-                ? "bg-slate-500   font-semibold text-base text-blue-100  "
-                : "  hover:bg-slate-500 hover:text-blue-100 hover:font-semibold hover:text-base  transition ease-out duration-400  "
+          className={`flex justify-center items-center h-8 w-8  transition ease-out duration-300 select-none cursor-pointer hover:bg-slate-500 hover:text-blue-100 hover:font-semibold hover:text-base focus:bg-lime-200 focus:text-lime-700
+            ${+day===pickDay && 'bg-lime-200 text-lime-700 font-semibold text-base '}  ${
+              day.format("DD/MM/YYYY") === dayjs().format("DD/MM/YYYY") &&
+              "bg-blue-400 rounded-full  font-semibold text-base text-blue-100  "
             }`}
           key={i}
           onClick={(e) =>
@@ -31,6 +30,7 @@ function SmallCalendar({ month }) {
           }
         >
           {day.format("DD")}
+          
         </Link>
       ))}
     </div>
