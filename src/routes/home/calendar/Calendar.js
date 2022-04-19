@@ -4,12 +4,12 @@ import dayjs from "dayjs";
 import { getMonth, weekday } from "../../../util";
 import { useCtrlContext } from "../../../hooks/useCtrlContext";
 
-function Month() {
-  const {monthIndex}=useCtrlContext()
-  // const monthIndex = dayjs().month();
-  // const monthIndex = useSelector((state) => state.calendar.monthIndex)
 
-  const month = getMonth(monthIndex,35);
+function Month() {
+  const { monthIndex } = useCtrlContext();
+  const month = getMonth(monthIndex, 35);
+
+
 
   return (
     <div className="h-full flex flex-col w-full">
@@ -23,9 +23,9 @@ function Month() {
           </div>
         ))}
       </div>
-      <div className=" grid grid-cols-7 flex-1">
+      <div className=" grid grid-cols-7  h-full auto-rows-[1fr]">
         {month.map((day, i) => (
-          <DayOfCalendar key={i} day={day}  />
+          <DayOfCalendar key={i} day={day} />
         ))}
       </div>
     </div>
