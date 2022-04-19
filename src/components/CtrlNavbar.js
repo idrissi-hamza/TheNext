@@ -5,21 +5,19 @@ import { Link } from "react-router-dom";
 
 
 const CtrlNavbar = () => {
-  const { dispatch ,monthIndex} = useCtrlContext();
+  const { dispatch ,monthIndex,pickDay} = useCtrlContext();
   return (
     <>
       <div className="ml-8  w-11 h-11 flex justify-center items-center rounded-full hover:bg-slate-400 text-gray-700 hover:text-gray-600 transition ease-in-out duration-300  ">
-        <button
-          onClick={() => {
-            dispatch({ type: "TOGGLE_SIDEBAR" });
-          }}
+        <Link
+          to='/'
           className="material-icons-round text-4xl"
         >
           menu
-        </button>
+        </Link>
       </div>
       <Link
-      to='/'
+      to={`/tasks/${dayjs(pickDay).format("DD-MM-YYYY")}`}
         className="ml-8 border px-3 py-1 mr-4 rounded-md border-slate-700 text-slate-500  hover:bg-slate-600 hover:text-slate-100 "
         onClick={() => {
           dispatch({ type: "TODAY" });

@@ -19,8 +19,8 @@ function SmallCalendar({ month }) {
         <Link
           to={`/tasks/${day.format("DD-MM-YYYY")}`}
           id={day}
-          className={`flex justify-center items-center h-8 w-8  transition ease-out duration-300 select-none cursor-pointer hover:bg-slate-500 hover:text-blue-100 hover:font-semibold hover:text-base focus:bg-lime-200 focus:text-lime-700
-            ${+day===pickDay && 'bg-lime-200 text-lime-700 font-semibold text-base '}  ${
+          className={`flex justify-center items-center h-8 w-8  transition ease-out duration-300 select-none cursor-pointer hover:bg-slate-500 hover:text-blue-100 hover:font-semibold hover:text-base hover:rounded focus:bg-lime-200 focus:text-lime-700
+            ${+day===pickDay && day.format("DD/MM/YYYY") !== dayjs().format("DD/MM/YYYY") && 'bg-lime-200 text-lime-700 rounded font-semibold text-base '}  ${
               day.format("DD/MM/YYYY") === dayjs().format("DD/MM/YYYY") &&
               "bg-blue-400 rounded-full  font-semibold text-base text-blue-100  "
             }`}

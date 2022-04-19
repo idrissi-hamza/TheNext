@@ -31,8 +31,8 @@ const Tasks = () => {
   // console.log(dayjs(pickDay).format("dddd MMMM YYYY"));
   return (
     <div className="w-full h-full flex flex-col ">
-      <h1 className="p-4 pb-2 text-lg font-semibold text-slate-600">
-        Tasks of {date}
+      <h1 className="p-4 pb-2" >
+        Tasks for: <span className="text-lg font-semibold text-slate-600">{date}</span>
       </h1>
 
       <div className="flex space-x-2 m-2 flex-1">
