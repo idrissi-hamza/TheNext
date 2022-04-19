@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { projectFirestore } from "../firebase/config";
 import { useCtrlContext } from "./useCtrlContext";
 
-export const useCollection = (collection, query, orderBy, day,status) => {
+export const useCollection = (collection, query, orderBy) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
 
@@ -19,12 +19,7 @@ export const useCollection = (collection, query, orderBy, day,status) => {
       ref = ref.orderBy(...orderBy);
     }
 
-    if (day) {
-      ref = ref.where(...day);
-    }
-    if (status) {
-      ref = ref.where(...status);
-    }
+  
 
     const unsubscribe = ref.onSnapshot(
       (snapshot) => {
@@ -38,14 +33,14 @@ export const useCollection = (collection, query, orderBy, day,status) => {
         setError(null);
       },
       (error) => {
-        console.log(error);
-        setError("could not fetch data");
+        console.error(error.message);
+        setError(`Could not fetch data : ${error.message}`);
       }
     );
 
     //unsubscribe on mount
     return () => unsubscribe();
-  }, [day]);
+  }, []);
 
   return { documents, error };
 };
