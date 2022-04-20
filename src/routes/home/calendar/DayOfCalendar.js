@@ -46,7 +46,7 @@ function DayOfCalendar({ day }) {
   return (
     <Link
       to={`/tasks/${day.format("DD-MM-YYYY")}`}
-      onClick={(e) => dispatch({ type: "SELECT_DAY", payload: e.target.id })}
+      onClick={(e) => dispatch({ type: "SELECT_DAY", payload: e.currentTarget.id })}
       id={day}
       className={`${tdyCss} ${pickCss}  focus:bg-blue-100   active:bg-blue-300 group   border-r pl-2   transition ease-out duration-200 select-none cursor-pointer `}
     >
