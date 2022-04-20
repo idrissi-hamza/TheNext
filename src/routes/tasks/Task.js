@@ -15,18 +15,18 @@ const Task = ({ doc }) => {
       <div>
         {doc.status === "todo" && (
           <button onClick={() => doingDocument(doc.id)}>
-            <ClipboardCopyIcon className=" mt-1 text-yellow-500   opacity-0 group-hover:opacity-100 w-5 h-5" />
+            <ClipboardCopyIcon className=" mt-1 text-yellow-500   sm:opacity-0 group-hover:opacity-100 w-5 h-5" />
           </button>
         )}
         {doc.status === "doing" && (
           <button onClick={() => doneDocument(doc.id)}>
-            <ClipboardCheckIcon className=" mt-1 text-green-400  opacity-0 group-hover:opacity-100 w-5 h-5" />
+            <ClipboardCheckIcon className=" mt-1 text-green-400  sm:opacity-0 group-hover:opacity-100 w-5 h-5" />
           </button>
         )}
       </div>
       <div>
         <button onClick={() => deleteDocument(doc.id)}>
-          <TrashIcon className="mt-1 text-red-400 opacity-0 group-hover:opacity-100 w-5 h-5" />
+          <TrashIcon className="ml-1 mt-1 text-red-400 sm:opacity-0 group-hover:opacity-100 w-5 h-5" />
         </button>
       </div>
     </li>
