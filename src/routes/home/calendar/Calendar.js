@@ -31,7 +31,7 @@ function Month() {
           <DayOfCalendar key={i} day={day} />
         ))}
       </div>
-      <div className=" pt-2 border-t  flex justify-around bg-neutral-200">
+      <div className=" pt-2 border-t sm:hidden  flex justify-around bg-neutral-200">
         <div className=" flex flex-col items-center text-gray-400">
           <ClipboardIcon className="   w-4 h-4" />
           <span className=" text-sm text-gray-400">Todo</span>
