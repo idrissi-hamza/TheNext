@@ -46,39 +46,41 @@ function DayOfCalendar({ day }) {
   return (
     <Link
       to={`/tasks/${day.format("DD-MM-YYYY")}`}
-      onClick={(e) => dispatch({ type: "SELECT_DAY", payload: e.currentTarget.id })}
+      onClick={(e) =>
+        dispatch({ type: "SELECT_DAY", payload: e.currentTarget.id })
+      }
       id={day}
       className={`${tdyCss} ${pickCss}  focus:bg-blue-100   active:bg-blue-300 group   border-r pl-2   transition ease-out duration-200 select-none cursor-pointer `}
     >
-      <h2 className="pb-1">{content}</h2>
+      <h2 className="pb-3 text-sm sm:text-base">{content}</h2>
 
-   
-        {!!todos && todos !== 0 && (
-          <div className="flex">
-            <ClipboardIcon className="  text-gray-400  w-4 h-4" />
-            <span className="text-xs flex">
+      {!!todos && todos !== 0 && (
+        <div className="flex">
+          <ClipboardIcon className="  text-gray-400  w-4 h-4" />
+          <span className="text-xs flex">
+            {todos}
+            <span className="hidden sm:inline-block">
               {todos > 1 ? `${todos} todos` : `${todos} todo`}
             </span>
-          </div>
-        )}
-        {!!doings && doings !== 0 && (
-          <div className="flex">
-            <ClipboardCopyIcon  className="  text-yellow-500  w-4 h-4" />
-            <span className="text-xs flex">
-              {`${doings} in progress`}
-            </span>
-          </div>
-        )}
-        {!!dones && dones !== 0 && (
-          <div className="flex">
-            <ClipboardCheckIcon className="  text-green-400  w-4 h-4" />
-            <span className="text-xs flex">
-              { `${dones} completed`}
-            </span>
-          </div>
-        )}
-     
-    
+          </span>
+        </div>
+      )}
+      {!!doings && doings !== 0 && (
+        <div className="flex">
+          <ClipboardCopyIcon className="  text-yellow-500  w-4 h-4" />
+          <span className="text-xs flex">
+            {doings} <span className="hidden sm:inline-block">in progress</span>
+          </span>
+        </div>
+      )}
+      {!!dones && dones !== 0 && (
+        <div className="flex">
+          <ClipboardCheckIcon className="  text-green-400  w-4 h-4" />
+          <span className="text-xs flex">
+            {dones} <span className="hidden sm:inline-block">completed</span>
+          </span>
+        </div>
+      )}
     </Link>
   );
 }

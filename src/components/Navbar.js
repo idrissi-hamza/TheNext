@@ -14,8 +14,8 @@ export default function App() {
         <li className="mr-auto flex items-center">
           <div className="flex">
             <Link to="/" className="flex flex-col justify-center items-center">
-              <img src={Logo} alt='logo' className="w-8  -mb-1  invert-[.25]"></img>
-              <span className="text-sm">TheNext</span>
+              <img src={Logo} alt='logo' className=" sm:w-8  -mb-1  invert-[.25]"></img>
+              <span className=" text-xs sm:text-sm">TheNext</span>
             </Link>
           </div>
 
@@ -25,7 +25,7 @@ export default function App() {
        
         {user && (
           <>
-            <li>hello, {user.displayName}</li>
+            <li className="hidden sm:inline-block">hello, {user.displayName}</li>
             <li>
               <button className="flex items-center justify-center space-x-1">
                 <LogoutIcon

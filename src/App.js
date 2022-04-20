@@ -13,7 +13,8 @@ function App() {
     <>
       {authIsReady && (
         <BrowserRouter>
-          <div className="flex flex-col h-screen ">
+          <div className="flex flex-col h-screen
+           ">
             {user && <Navbar />}
             <div className="flex h-full ">
               {user && <Sidebar />}
