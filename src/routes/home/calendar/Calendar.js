@@ -1,6 +1,5 @@
 import React from "react";
 import DayOfCalendar from "./DayOfCalendar";
-import dayjs from "dayjs";
 import { getMonth, weekday } from "../../../util";
 import { useCtrlContext } from "../../../hooks/useCtrlContext";
 

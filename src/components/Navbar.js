@@ -3,7 +3,6 @@ import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { LogoutIcon } from "@heroicons/react/outline";
 import Logo from "../asset/logo.svg";
-import Button from "./Button";
 import CtrlNavbar from "./CtrlNavbar";
 
 export default function App() {
@@ -15,7 +14,7 @@ export default function App() {
         <li className="mr-auto flex items-center">
           <div className="flex">
             <Link to="/" className="flex flex-col justify-center items-center">
-              <img src={Logo} className="w-8  -mb-1  invert-[.25]"></img>
+              <img src={Logo} alt='logo' className="w-8  -mb-1  invert-[.25]"></img>
               <span className="text-sm">TheNext</span>
             </Link>
           </div>

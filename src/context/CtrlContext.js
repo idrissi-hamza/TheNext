@@ -31,7 +31,6 @@ export const CtrlContextProvider = ({ children }) => {
     pickDay: getToday(),
     sidebar: true,
   });
-  console.log("ctrlctx:", state);
   return (
     <CtrlContext.Provider value={{ ...state, dispatch }}>
       {children}

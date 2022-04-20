@@ -25,8 +25,6 @@ const Tasks = () => {
     doings = tasks.filter((task) => task.status === "doing");
     dones = tasks.filter((task) => task.status === "done");
   }
-  console.log("doc", documents, "task", tasks);
-
   let date = dayjs(pickDay).format("dddd, MMMM DD, YYYY");
   // console.log(dayjs(pickDay).format("dddd MMMM YYYY"));
   return (

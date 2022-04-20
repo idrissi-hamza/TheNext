@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { projectFirestore } from "../firebase/config";
-import { useCtrlContext } from "./useCtrlContext";
 
-export const useCollection = (collection, query, orderBy) => {
+export const useCollection = (collection, _query, _orderBy) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
 
- 
+  const query = useRef(_query).current;
+  const orderBy=useRef(_orderBy).current
+
   
   useEffect(() => {
     let ref = projectFirestore.collection(collection);
@@ -40,7 +41,7 @@ export const useCollection = (collection, query, orderBy) => {
 
     //unsubscribe on mount
     return () => unsubscribe();
-  }, []);
+  }, [query,orderBy,collection]);
 
   return { documents, error };
 };

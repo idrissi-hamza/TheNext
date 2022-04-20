@@ -9,7 +9,6 @@ import {
 
 const Task = ({ doc }) => {
   const { deleteDocument, doingDocument,doneDocument } = useFirestore("todos");
-  console.log(doc.status);
   return (
     <li className="flex items-center group bg-stone-100 m-1 p-2 rounded text-slate-700">
       <span className="mr-auto">{doc.task}</span>
