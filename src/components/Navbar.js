@@ -9,7 +9,7 @@ export default function App() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   return (
-    <nav className="w-full py-2 pl-4 pr-10 border-b border-b-slate-400 bg-slate-200   ">
+    <nav className=" w-screen  py-2 pl-4 pr-10 border-b border-b-slate-400 bg-slate-200   ">
       <ul className="flex mx-auto items-center  space-x-4 ">
         <li className="mr-auto flex items-center">
           <div className="flex">
@@ -22,16 +22,7 @@ export default function App() {
           {user && <CtrlNavbar />}
         </li>
 
-        {!user && (
-          <>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-          </>
-        )}
+       
         {user && (
           <>
             <li>hello, {user.displayName}</li>

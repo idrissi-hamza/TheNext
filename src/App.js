@@ -14,13 +14,13 @@ function App() {
       {authIsReady && (
         <BrowserRouter>
           <div className="flex flex-col h-screen ">
-            <Navbar />
+            {user && <Navbar />}
             <div className="flex h-full ">
               {user && <Sidebar />}
               <Routes>
                 <Route
                   path="/"
-                  element={user ? <Home /> : <Navigate to="/login" />}
+                  element={user ? <Home /> : <Navigate to="/signup" />}
                 />
                 <Route
                   path="login"
@@ -40,7 +40,7 @@ function App() {
                 />
                 <Route
                   path="tasks/:id"
-                  element={user ? <Tasks /> : <Navigate to="/login" />}
+                  element={user ? <Tasks /> : <Navigate to="/signup" />}
                 />
               </Routes>
             </div>

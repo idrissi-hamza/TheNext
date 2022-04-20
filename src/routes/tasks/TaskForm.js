@@ -28,7 +28,7 @@ export default function TaskForm({ uid }) {
 
   return (
     <>
-      <form className=" p-1   rounded-lg " onSubmit={handleSubmit}>
+      <form className=" p-1 rounded-lg " onSubmit={handleSubmit}>
         <label className="flex items-center bg-gray-100 ">
           
           <input

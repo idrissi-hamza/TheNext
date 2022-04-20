@@ -17,7 +17,7 @@ function Sidebar() {
     
     <>
       {sidebar && (
-        <aside className="h-full text-gray-700 px-2 bg-neutral-200 shadow-sm shrink-0 relative">
+        <aside className=" hidden sm:inline-block h-full text-gray-700 px-2 bg-neutral-200 shadow-sm shrink-0 relative">
           <button
             className="material-icons-outlined  text-2xl absolute right-1 mb-10 "
             onClick={() => dispatch({ type: "TOGGLE_SIDEBAR" })}
@@ -50,7 +50,7 @@ function Sidebar() {
         </aside>
       )}
       {!sidebar && (
-        <aside className=" h-full text-gray-700 px-4 bg-slate-300 shrink-0 relative">
+        <aside className=" h-full text-gray-700 px-4 bg-neutral-200 shrink-0 relative">
           <button
             className="material-icons-outlined rotate-180 text-2xl absolute right-1  ml-8 mb-10 "
             onClick={() => dispatch({ type: "TOGGLE_SIDEBAR" })}
