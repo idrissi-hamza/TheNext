@@ -50,7 +50,7 @@ export default function Login() {
 
         {!isPending && <Button title={"Login"} />}
         {isPending && <Button title={"Loading.."} />}
-        {error && <p>{error}</p>}
+        {error && alert(error)}
         <div className="pt-2 font-semibold text-sm  hover:text-indigo-700 ">
           <Link to="/signup">Sign up for TheNext</Link>
         </div>

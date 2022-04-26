@@ -62,9 +62,9 @@ export default function Signup() {
 
         {isPending && <Button title={"Pending..."} />}
         {!isPending && <Button title={"Signup"} />}
-        {error && <p>{error}</p>}
+        {error && alert(error)}
         <div className="pt-2 font-semibold text-sm hover:text-indigo-700 ">
-          {" "}
+         
           <Link to="/login">Already have an account?</Link>
         </div>
       </form>
