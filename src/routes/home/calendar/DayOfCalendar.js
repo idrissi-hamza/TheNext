@@ -58,10 +58,7 @@ function DayOfCalendar({ day }) {
         <div className="flex">
           <ClipboardIcon className="  text-gray-400  w-4 h-4" />
           <span className="text-xs flex">
-            {todos}
-            <span className="hidden sm:inline-block">
-              {todos > 1 ? `${todos} todos` : `${todos} todo`}
-            </span>
+            {todos} <span className="hidden sm:inline-block pl-1 "> todos</span>
           </span>
         </div>
       )}
@@ -69,7 +66,7 @@ function DayOfCalendar({ day }) {
         <div className="flex">
           <ClipboardCopyIcon className="  text-yellow-500  w-4 h-4" />
           <span className="text-xs flex">
-            {doings} <span className="hidden sm:inline-block">in progress</span>
+            {doings} <span className="hidden sm:inline-block pl-1"> in progress</span>
           </span>
         </div>
       )}
@@ -77,7 +74,7 @@ function DayOfCalendar({ day }) {
         <div className="flex">
           <ClipboardCheckIcon className="  text-green-400  w-4 h-4" />
           <span className="text-xs flex">
-            {dones} <span className="hidden sm:inline-block">completed</span>
+            {dones} <span className="hidden sm:inline-block pl-1 ">completed</span>
           </span>
         </div>
       )}
